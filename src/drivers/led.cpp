@@ -1,4 +1,5 @@
 #include "led.h"
+#include "hal.h"
 
 Led::Led(GPIO_TypeDef* gpio_port, uint16_t gpio_pin) 
     : port(gpio_port)
@@ -12,21 +13,21 @@ Led::Led(GPIO_TypeDef* gpio_port, uint16_t gpio_pin)
 }
 
 void Led::on() {
-    HAL_GPIO_WritePin(port, pin, GPIO_PIN_SET);
+    GPIO_ON(port, pin);
 }
 
 void Led::off() {
-    HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+    GPIO_OFF(port, pin);
 }
 
 void Led::toggle() {
-    HAL_GPIO_TogglePin(port, pin);
+    GPIO_TOGGLE(port, pin);
 }
 
 void Led::startBlink(uint32_t interval_ms) {
     isBlinking = true;
     blinkInterval = interval_ms;
-    lastToggle = HAL_GetTick();
+    lastToggle = GET_TICK();
 }
 
 void Led::stopBlink() {

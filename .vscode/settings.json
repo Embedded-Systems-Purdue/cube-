@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "main.h": "c",
-        "app.h": "c"
+        "app.h": "c",
+        "stdlib.h": "c",
+        "stm32f0xx_hal.h": "c",
+        "ledmatrix.h": "c",
+        "hardwareconfig.h": "c",
+        "tim.h": "c"
     }
 }

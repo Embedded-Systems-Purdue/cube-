@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 #include "led.h"
+#include "ledMatrix.h"
+#include "ultrasonic.h"
 
 #ifdef __cplusplus
 class App {
